@@ -11,12 +11,28 @@ argv.option([{
     name: 'config',
     type: 'string',
     short: 'c'
+}, {
+    name: 'username',
+    type: 'string',
+    short: 'u'
+}, {
+    name: 'key',
+    type: 'string',
+    short: 'k'
+}, {
+    name: 'test_path',
+    type: 'string',
+    short: 'f'
 }]);
-var results = argv.run().options;
-if (!results.config) {
-    throw new Error('run-browserstack-tests needs a config');
+var config, results = argv.run().options;
+if (results.username) {
+    config = results;
+} else {
+    if (!results.config) {
+        throw new Error('run-browserstack-tests needs a config');
+    }
+    config = require(results.config);
 }
-var config = require(results.config);
 var test_path = config.test_path;
 var skips = {
     '/': true,

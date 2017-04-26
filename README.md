@@ -21,3 +21,7 @@ a full command has to have a query parameter passed to it. A perfect example is 
 ```
 run-browserstack-tests -c ~/Sites/config.json -q "~iphone"
 ```
+or without the config all together
+```
+run-browserstack-tests -u BROWSERSTACK_USERNAME -k BROWSERSTACK_KEY -f TEST_PATH -q "~iphone"
+```
