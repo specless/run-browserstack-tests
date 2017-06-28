@@ -1,11 +1,11 @@
 {
   "name": "run-browserstack-tests",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "share":"npm version patch && git push && npm publish"
+    "share": "npm version patch && git push && npm publish"
   },
   "bin": {
     "run-browserstack-tests": "bin/index.js"
