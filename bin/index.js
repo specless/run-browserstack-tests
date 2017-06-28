@@ -33,12 +33,14 @@ if (results.username) {
     }
     config = require(results.config);
 }
-var test_path = config.test_path;
+var test_path = config.test_path = typeof config.test_path === 'string' ? [config.test_path] : config.test_path;
 var skips = {
     '/': true,
     '~': true
 };
-if (!skips[test_path[0]]) {
-    config.test_path = path.join(path.dirname(results.config), test_path);
+if (!skips[test_path[0][0]]) {
+    config.test_path = test_path.map(function (test_path) {
+        return path.join(path.dirname(results.config), test_path);
+    });
 }
 select(config, results.query);

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "share":"npm version patch && git push && npm publish"
   },
   "bin": {
     "run-browserstack-tests": "bin/index.js"
